@@ -8,7 +8,7 @@ class XiaAppHeader {
         const app_cookie = Cookies.get(appCookieName)
         this.root_header = root_cookie ? JSON.parse(atob(root_cookie)) : {}
         this.app_header = app_cookie ? JSON.parse(atob(app_cookie)) : {}
-        this.app_name = this.getValue(this.app_header, 'app_name', '')
+        this.app_name = this.getValue(this.app_header, 'app_name', window.location.href.split('/')[2].split('.')[0])
     }
 
     getValue(obj, key, defaultValue) {
